@@ -27,9 +27,9 @@ router.get('/clothes/:id', async (req, res) => {
 
 // POST create new clothes
 router.post('/clothes', async (req, res) => {
-  const { name, color, size } = req.body;
+  const obj = req.body;
  
-    const Clothes = await clothes.create({ name: 'Shirt', color: 'Blue', size: 'Medium' });
+    const Clothes = await clothes.create(obj);
     res.status(201).json(Clothes);
  
 });
