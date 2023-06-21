@@ -1,6 +1,7 @@
 'use strict';
-
+// Model definition for clothes table based on sequelize
 const clothes = (sequelize, DataTypes) => sequelize.define('clothes', {
+  // The food table has these attributes(columns)
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,

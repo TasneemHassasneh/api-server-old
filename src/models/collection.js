@@ -1,9 +1,12 @@
 // File: Collection.js
+
+// Creates a class to make new instances for each model, that has methods to perform CRUD.
 class Collection {
     constructor(model) {
       this.model = model;
     }
-  
+    
+    // POST create new clothes
     async create(data) {
       try {
         const createdRecord = await this.model.create(data);
@@ -13,7 +16,8 @@ class Collection {
         throw error;
       }
     }
-  
+
+  // GET all clothes && one Cloth
     async read() {
       try {
         const records = await this.model.findAll();
@@ -23,7 +27,8 @@ class Collection {
         throw error;
       }
     }
-  
+
+  // PUT update existing clothes by ID
     async update(id, data) {
       try {
         const updatedRecord = await this.model.update(data, {
@@ -35,7 +40,8 @@ class Collection {
         throw error;
       }
     }
-  
+
+  // DELETE delete clothes by ID
     async delete(id) {
       try {
         if  ( await this.read(id)){
@@ -56,6 +62,7 @@ class Collection {
       }
     }
 
+    // GET Relational Tables of food and ingredient
     async readFoodIngredient(id, model) {
       try {
         const records = await this.model.findOne({
