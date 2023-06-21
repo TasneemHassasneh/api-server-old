@@ -9,6 +9,7 @@ const pageNotFound = require('./error-handlers/404');
 const serverError = require('./error-handlers/500');
 const clothesRouter = require('./routes/clothes');
 const foodRouter = require('./routes/food');
+const ingredientsRouter = require('./routes/Ingredient');
 
 
 app.use(express());
@@ -24,6 +25,7 @@ app.get("/", (req, res) => {
 
 app.use(clothesRouter);
 app.use(foodRouter);
+app.use(ingredientsRouter);
 
 app.use( pageNotFound);
 app.use(serverError);
